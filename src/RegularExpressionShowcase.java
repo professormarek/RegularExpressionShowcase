@@ -38,5 +38,14 @@ public class RegularExpressionShowcase {
         String modified = lineNumberMatcher.replaceAll(""); //in this case replacing them with empty string
         System.out.println("The string without line numbers is: " + modified + "\nthe new string length is "+ modified.length());
 
+        /**TASK 3 - remove all newlines (\n)**/
+        //create a pattern to match newline characters
+        Pattern newLinePattern = Pattern.compile("\n");
+        Matcher newLineMatcher = newLinePattern.matcher(modified); //work with the modified string where we removed line numbers
+        //change modified to remove the line numbers
+        modified = newLineMatcher.replaceAll("");
+        System.out.println("The string without new lines is: " + modified + "\nthe new string length is "+ modified.length());
+
+        
     }
 }
