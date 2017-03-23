@@ -46,6 +46,33 @@ public class RegularExpressionShowcase {
         modified = newLineMatcher.replaceAll("");
         System.out.println("The string without new lines is: " + modified + "\nthe new string length is "+ modified.length());
 
-        
+        //TODO: as an exercise, try elimininating the whitespace (instead we will use whitespace to tokenize (split) the line
+
+        /**TASK 4
+        tokenize the string using the split method
+         **/
+        Pattern whitespace = Pattern.compile("\\s");
+        //split the modified String into an array of String tokens
+        String [] tokens = whitespace.split(modified);
+        System.out.println("tokenized strings: ");
+        /*
+        let's introduce Java style "for each" in order to visit the tokenized strings
+        read the following loop as "for each token in tokens"
+         */
+        for(String token : tokens){
+            System.out.println(token);
+        }
+
+        /**
+         * TASK 5 search for a substring within our sequence data
+         */
+        System.out.println("demonstrating using a matcher to find a substring: ");
+
+        Pattern searchPattern = Pattern.compile("aaa.c");
+        Matcher searchMatcher = searchPattern.matcher(modified);
+        while(searchMatcher.find()){
+            //just print it for now...
+            System.out.println("found: " + searchMatcher.group() + " at position: " + searchMatcher.start() + " ending at: " + searchMatcher.end());
+        }
     }
 }
