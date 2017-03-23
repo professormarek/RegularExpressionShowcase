@@ -13,7 +13,7 @@ public class RegularExpressionShowcase {
                           "121 ggcaagagcc gggctgtcaa tatgctaaaa cgcggaatgc cccgcgtgtt gtccttgatt\n" +
                           "181 ggactgaaga gggctatgtt gagcctgatc gacggcaagg ggccaatacg atttgtgttg\n" ;
 
-        System.out.println("Input sequence is: " + sequence);
+        System.out.println("Input sequence is: " + sequence + "\nthe lenght of this string is: " + sequence.length());
 
         /**TASK1 - locate the line numbers in the string**/
 
@@ -29,5 +29,14 @@ public class RegularExpressionShowcase {
             System.out.println("found: " +  lineNumberMatcher.group() + " at position " + lineNumberMatcher.start()
                 + " and ending at position " + lineNumberMatcher.end());
         }
+
+        /**TASK 2 - remove all line numbers (replace with empty strings) : note this will change the lenght of the string
+            the easiest way would be just to use the Matcher.replaceAll method which will
+            replace ALL PERVIOUS MATCHES with whatever is supplied by the string argument
+            notice this fucntion call will return a new string
+         **/
+        String modified = lineNumberMatcher.replaceAll(""); //in this case replacing them with empty string
+        System.out.println("The string without line numbers is: " + modified + "\nthe new string length is "+ modified.length());
+
     }
 }
